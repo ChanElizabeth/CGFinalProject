@@ -24,8 +24,8 @@ Clara.io. (n.d.). Clara.io: Online 3D Modeling, 3D Rendering, Free 3D Models. Re
 
 Free3d. (n.d.).  3D Models for Free - Free3D.com. Retrieved from https://free3d.com/
 
-Nascimento, W. (2020). Creating a timer with JavaScript - DEV Community. Retrieved 
-	from https://dev.to/walternascimentobarroso/creating-a-timer-with-javascript-8b7
-
 PlayCanvas. (n.d.). PlayCanvas WebGL Game Engine. Retrieved from 
 	https://playcanvas.com/
+
+xRobot. (2015). How to create an accurate timer in javascript?. Retrieved from https://
+	stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
