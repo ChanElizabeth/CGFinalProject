@@ -13,6 +13,9 @@ var isButtonUp, isButtonDown = false;
 
 BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {    
 
+    // Add timer to scene
+    const timer = new Timer();
+    
     // GUI
     var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
@@ -49,7 +52,7 @@ BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {
         control.isVisible = false;
         title.isVisible = false;
         description.isVisible = false;
-        start();
+        timer.start();
     });
     advancedTexture.addControl(button1);  
 
@@ -119,10 +122,8 @@ BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {
     var stone = createCheckPointThree(scene, shaderMaterial);
         
     // Show the timer of the game but invisible before game end
-    var count = 10
-    count++ 
     var gameOver = new BABYLON.GUI.TextBlock();
-    gameOver.text = + count + " Seconds";
+    gameOver.text = " Seconds";
     gameOver.color = "white";
     gameOver.fontSize = 24;
     gameOver.top = 100
@@ -137,6 +138,7 @@ BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {
     congratz.isVisible = false
     advancedTexture.addControl(congratz);   
 
+    // Add camera to scene
     let cam = camera(scene);
 
     // Load the sound and play it automatically once ready
@@ -153,20 +155,13 @@ BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {
         wand.isPickable = enableMesh;
         stone.isPickable = enableMesh;
 
-        var timeSec = returnData(second);
-        var timeMin = returnData(minute);
+        var t = Math.round(timer.getTime() / 1000);
 
         if (x == 3 || x > 3){
-            stop();
-            clearTimeout(timer);
-            clearInterval(cron);
-
+            timer.stop()
             congratz.isVisible = true                    
-
             gameOver.isVisible = true
-            if (!scene.deltaTime) return;
-            count -= (scene.deltaTime / 1000);
-            gameOver.text = String(timeMin) + " Minutes " + String(timeSec) + " Seconds";   
+            gameOver.text = String(t) + " Seconds";   
         }
     })
 

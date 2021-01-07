@@ -1,38 +1,47 @@
-let hour = 0;
-let minute = 0;
-let second = 0;
-let millisecond = 0;
-
-let cron;
-
-function start() {
-    stop();
-    cron = setInterval(() => { timer(); }, 100);
-}
-
-function stop() {
-    clearInterval(cron);
-    clearTimeout(timer);
-}
-
-function timer() {
-
-    if ((millisecond += 10) == 1000) {
-        millisecond = 0;
-        second++;
+class Timer {
+    constructor () {
+      this.isRunning = false;
+      this.startTime = 0;
+      this.overallTime = 0;
     }
-    if (second == 60) {
-        second = 0;
-        minute++;
+  
+    _getTimeElapsedSinceLastStart () {
+      if (!this.startTime) {
+        return 0;
+      }
+    
+      return Date.now() - this.startTime;
     }
-    if (minute == 60) {
-        minute = 0;
-        hour++;
+  
+    start () {
+      if (this.isRunning) {
+        return console.log('Timer is already running');
+      }
+  
+      this.isRunning = true;
+  
+      this.startTime = Date.now();
     }
-
-    setTimeout(timer, 100);
-}
-
-function returnData(input) {
-return input > 10 ? input : `0${input}`
-}
+  
+    stop () {
+      if (!this.isRunning) {
+        return console.log('Timer is already stopped');
+      }
+  
+      this.isRunning = false;
+  
+      this.overallTime = this.overallTime + this._getTimeElapsedSinceLastStart();
+    }
+  
+    getTime () {
+      if (!this.startTime) {
+        return 0;
+      }
+  
+      if (this.isRunning) {
+        return this.overallTime + this._getTimeElapsedSinceLastStart();
+      }
+  
+      return this.overallTime;
+    }
+  }
