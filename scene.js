@@ -139,6 +139,9 @@ BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {
 
     let cam = camera(scene);
 
+    // Load the sound and play it automatically once ready
+    let music = new BABYLON.Sound("music", "music/music.mp3", scene, null, { loop: true, autoplay: true });
+
     scene.registerBeforeRender(function () {
         if (isButtonUp) {
             cam.position.addInPlace(cam.getDirection(BABYLON.Vector3.Forward()));
@@ -151,6 +154,7 @@ BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {
         stone.isPickable = enableMesh;
 
         var timeSec = returnData(second);
+        var timeMin = returnData(minute);
 
         if (x == 3 || x > 3){
             stop();
@@ -162,7 +166,7 @@ BABYLON.SceneLoader.Append("city/", "city.babylon", scene, function (scene) {
             gameOver.isVisible = true
             if (!scene.deltaTime) return;
             count -= (scene.deltaTime / 1000);
-            gameOver.text = String(timeSec) + " Seconds";   
+            gameOver.text = String(timeMin) + " Minutes " + String(timeSec) + " Seconds";   
         }
     })
 
