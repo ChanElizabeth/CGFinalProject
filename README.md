@@ -8,8 +8,7 @@ Note: It is recommended to use browser like Google Chrome.
 
 The PlayCanvas link: 
 - Code: https://playcanvas.com/editor/project/751865
-- Video: https://binusianorg-my.sharepoint.com/personal/jotika_sthana_binus_ac_id/_layouts/15/guestaccess.aspx?   
-docid=09734b288eedc435a96a094980858c85f&authkey=AfcoDgB4Y-osgPtB8L2O18M&e=cwC9g4
+- Video: https://binusianorg-my.sharepoint.com/personal/jotika_sthana_binus_ac_id/_layouts/15/guestaccess.aspx?docid=09734b288eedc435a96a094980858c85f&authkey=AfcoDgB4Y-osgPtB8L2O18M&e=cwC9g4
 
 References:
 
